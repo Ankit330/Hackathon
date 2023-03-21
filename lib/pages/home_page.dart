@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sample/model/userMode.dart';
+import 'package:sample/pages/detail_page.dart';
+import 'package:sample/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   final UserModel? userModel;
@@ -37,7 +39,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProfilePage(
+                                        userModel: widget.userModel,
+                                      )),
+                            );
+                          },
                           icon: const Icon(
                             Icons.person,
                             size: 30,
@@ -92,13 +102,22 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Center(
-                          child: Container(
-                            height: 170,
-                            width: 300,
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Image.asset("assets/img1.jpg"),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const DetailPage()),
+                              );
+                            },
+                            child: Container(
+                              height: 170,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Image.asset("assets/img1.jpg"),
+                            ),
                           ),
                         ),
                         Row(
