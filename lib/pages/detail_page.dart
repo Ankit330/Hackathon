@@ -61,7 +61,7 @@ class _DetailPageState extends State<DetailPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Container(
+            child: SizedBox(
               height: 55,
               child: ElevatedButton(
                   onPressed: () {},
